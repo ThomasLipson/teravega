@@ -76,6 +76,23 @@ export default function Home() {
             Please connect your wallet before getting a quote.
           </p>
         )}
+
+        {/* Callouts */}
+        <div className="mt-8 flex flex-col items-center gap-3 text-sm text-gray-400">
+          <div className="flex items-center gap-2">
+            <span>↑ Get low rates</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span>Generate yield</span>
+            <span>→</span>
+            <a
+              href="/staking"
+              className="bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-700 transition"
+            >
+              Staking Dashboard
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
