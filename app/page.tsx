@@ -1,4 +1,23 @@
+'use client';
+
+import { useState } from 'react';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
+
 export default function Home() {
+  const { openConnectModal } = useConnectModal();
+  const { isConnected, address } = useAccount();
+  const [quoteError, setQuoteError] = useState(false);
+
+  function handleGetQuote() {
+    if (!isConnected) {
+      setQuoteError(true);
+    } else {
+      setQuoteError(false);
+      // TODO: quote flow
+    }
+  }
+
   return (
     <main className="min-h-screen bg-black text-white flex flex-col">
 
@@ -10,9 +29,18 @@ export default function Home() {
           <a href="#" className="hover:text-white transition">Claims</a>
           <a href="#" className="hover:text-white transition">About</a>
         </div>
-        <button className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition">
-          Connect Wallet
-        </button>
+        {isConnected ? (
+          <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium">
+            {address?.slice(0, 6)}…{address?.slice(-4)}
+          </span>
+        ) : (
+          <button
+            onClick={openConnectModal}
+            className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition"
+          >
+            Connect Wallet
+          </button>
+        )}
       </nav>
 
       {/* Hero */}
@@ -36,10 +64,18 @@ export default function Home() {
             placeholder="ZIP Code"
             className="bg-transparent text-black placeholder-gray-400 text-sm outline-none w-28"
           />
-          <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition">
+          <button
+            onClick={handleGetQuote}
+            className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition"
+          >
             Get a quote
           </button>
         </div>
+        {quoteError && (
+          <p className="mt-4 text-red-400 text-sm">
+            Please connect your wallet before getting a quote.
+          </p>
+        )}
       </section>
 
       {/* Footer */}
@@ -49,5 +85,5 @@ export default function Home() {
       </footer>
 
     </main>
-  )
+  );
 }
