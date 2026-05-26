@@ -46,7 +46,7 @@ export default function Home() {
       {/* Hero */}
       <section className="flex-1 flex flex-col items-center justify-center text-center px-6">
         <h2 className="text-6xl font-bold tracking-tight max-w-3xl leading-tight">
-          crypto native insurance the best bang for your buck! 
+          a next-generation mutual insurer with transparent on-chain reserves and automated operations 
         </h2>
 
         {/* Quote bar */}
