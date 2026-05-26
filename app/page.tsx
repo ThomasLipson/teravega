@@ -46,10 +46,10 @@ export default function Home() {
       {/* Hero */}
       <section className="flex-1 flex flex-col items-center justify-center text-center px-6">
         <h2 className="text-6xl font-bold tracking-tight max-w-3xl leading-tight">
-          You're the boss at Teravega
+          crypto Native Insurance is the best bang for your buck! 
         </h2>
         <p className="text-gray-400 mt-6 text-xl max-w-xl">
-          Crypto native insurance the best bang for your buck
+          you're the boss at Teravega
         </p>
 
         {/* Quote bar */}
