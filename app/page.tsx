@@ -52,9 +52,8 @@ export default function Home() {
         {/* Quote bar */}
         <div className="mt-12 flex items-center gap-4 bg-white rounded-full px-6 py-4">
           <select className="bg-transparent text-black text-sm outline-none pr-4 border-r border-gray-300">
-            <option>Rental Deposit</option>
-            <option>Home</option>
             <option>Auto</option>
+            <option>Motorcycle</option>
           </select>
           <input
             type="text"
